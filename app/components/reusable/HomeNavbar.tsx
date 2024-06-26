@@ -17,12 +17,9 @@ const Navbar = () => {
   };
 
   return (
-    <div
-      className="px-6 py-4 shadow-sm flex justify-between items-center"
-      style={{ background: "#FFFCF9" }}
-    >
+    <div className="px-6 py-4 shadow-sm flex justify-between items-center bg-transparent relative">
       <div className="flex gap-2 items-center">
-        <div className="text-2xl">
+        <div className="text-2xl pl-20">
           <Image
             src="/logo.png"
             alt="TokenFest Logo"
@@ -31,31 +28,19 @@ const Navbar = () => {
             className="w-auto h-auto"
           />
         </div>
-        <div className="text-black text-2xl font-semibold hover:text-gray-800 ">
-          <Link href="/">Voyager</Link>
+        <div className="text-white text-2xl font-semibold hover:text-gray-800">
+          <Link href="/">Ziger</Link>
         </div>
       </div>
-      <div className="hidden md:flex gap-4 items-center text-gray-500 font-space-grotesk font-semibold">
-        <Link
-          href={userAddress ? "/voyager/random_chat/new" : "/"}
-          className="hover:text-gray-600"
-        >
-          Meet New
-        </Link>
-        
-        <Link
-          href={userAddress ? "/voyager/raids" : "/"}
-          className="hover:text-gray-600"
-        >
-          Raids
-        </Link>
-        <Link
-          href={userAddress ? "/swapusdc" : "/"}
-          className="hover:text-gray-600"
-        >
-          Swap USDC
-        </Link>
-        <div className="hidden lg:flex justify-center items-center gap-2">
+      
+      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+        <div className="hidden md:flex gap-36 items-center text-white font-space-grotesk font-semibold text-xl">
+          <Link
+            href={userAddress ? "/voyager/random_chat/new" : "/"}
+            className="hover:text-gray-600 px-4 py-2"
+          >
+            Meet New
+          </Link>
           {userAddress && (
             <div className="flex">
               <Link
@@ -70,19 +55,28 @@ const Navbar = () => {
                 <CgProfile className="text-4xl cursor-pointer hover:text-gray-600" />
               </Link>
             </div>
-          )  
-          }
-            <ConnectWallet
+          )}
+          <Link
+            href={userAddress ? "/voyager/raids" : "/"}
+            className="hover:text-gray-600 px-4 py-2"
+          >
+            Raids
+          </Link>
+          
+        </div>
+      </div>
+
+      <div className="hidden lg:flex justify-center items-center gap-2 pr-20 pt-5">
+        <ConnectWallet
           theme={lightTheme({
             colors: { primaryButtonBg: "white" },
           })}
-          style={{ color: "black", borderRadius: '9999px' }}
-          className="hover:bg-sky-500"
+          style={{ color: "black", borderRadius: "9999px" }}
+          className="hover:bg-sky-500 text-black"
           switchToActiveChain={true}
           modalSize={"wide"}
-          welcomeScreen={{ title: "Voyager"}}
+          welcomeScreen={{ title: "Voyager" }}
         />
-        </div>
       </div>
 
       <div className="md:hidden flex items-center">
@@ -107,24 +101,17 @@ const Navbar = () => {
       {menuOpen && (
         <div className="md:hidden absolute top-16 right-0 bg-white w-full shadow-lg py-4">
           <Link
-          href={userAddress ? "/voyager/random_chat/new" : "/"}
-          className="block px-4 py-2 text-black font-semibold hover:text-gray-700"
-        >
-          Meet New
-        </Link>
-        
-        <Link
-          href={userAddress ? "/voyager/raids" : "/"}
-          className="block px-4 py-2 text-black font-semibold hover:text-gray-700"
-        >
-          Raids
-        </Link>
-        <Link
-          href={userAddress ? "/swapusdc" : "/"}
-          className="block px-4 py-2 text-black font-semibold hover:text-gray-700"
-        >
-          Swap USDC
-        </Link>
+            href={userAddress ? "/voyager/random_chat/new" : "/"}
+            className="block px-4 py-2 text-black font-semibold hover:text-gray-700"
+          >
+            Meet New
+          </Link>
+          <Link
+            href={userAddress ? "/voyager/raids" : "/"}
+            className="block px-4 py-2 text-black font-semibold hover:text-gray-700"
+          >
+            Raids
+          </Link>
           {userAddress && (
             <div className="flex">
               <Link
@@ -139,13 +126,12 @@ const Navbar = () => {
                 <CgProfile className="text-4xl cursor-pointer" />
               </Link>
             </div>
-          )  
-            }
-            <ConnectWallet
+          )}
+          <ConnectWallet
             theme={lightTheme({
               colors: { primaryButtonBg: "white" },
             })}
-            style={{ color: "black", borderRadius: '9999px' }}
+            style={{ color: "black", borderRadius: "9999px" }}
             className="hover:bg-sky-500"
             switchToActiveChain={true}
             modalSize={"wide"}

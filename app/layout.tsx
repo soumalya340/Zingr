@@ -38,7 +38,7 @@ export default function RootLayout({
             )}
           >
           
-            <body className="font-raleway text-sm text-gray-800">
+            <body className="font-raleway text-sm text-gray-800 bg-black">
               <div>{children}</div>
             </body>
           </SnackbarProvider>
