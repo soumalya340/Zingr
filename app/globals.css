@@ -103,3 +103,13 @@ body {
 .shadow-right-bottom-blue {
   box-shadow: 5px 5px 0px 0px #2B7CFF; /* Adjust the values as needed */
 }
+.bg-gradient-custom {
+  background: linear-gradient(
+    to bottom, 
+    rgba(255, 213, 64, 0.2),
+    rgba(43, 124, 255, 0.2),
+    rgba(17, 217, 197, 0.2),
+    rgba(254, 104, 252, 0.2)
+  );
+}
+
