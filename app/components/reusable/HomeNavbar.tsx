@@ -29,14 +29,14 @@ const Navbar = () => {
           />
         </div>
         <div className="text-white text-2xl font-semibold hover:text-gray-800">
-          <Link href="/">Ziger</Link>
+          <Link href="/">Zingr</Link>
         </div>
       </div>
       
       <div className="absolute top-0 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
         <div className="hidden md:flex gap-36 items-center text-white font-space-grotesk font-semibold text-xl">
           <Link
-            href={userAddress ? "/voyager/random_chat/new" : "/"}
+            href={userAddress ? "/voyager/farcester" : "/"}
             className="hover:text-gray-600 px-4 py-2"
           >
             Meet New

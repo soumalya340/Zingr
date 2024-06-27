@@ -169,8 +169,50 @@ trustworthy profile for interactions<br/> within the app.
 
 </div>
 <div className="h-[50vh]"></div>
+<div className="bg-[url('/hero6.png')] opacity-80  bg-cover h-full  mt-44 flex flex-col justify-end  items-start">
+<div className="flex ml-32   text-white">
 
-      {/* <Footer /> */}
+<p className="text-6xl font-semibold">Cults (Communities) </p>
+
+
+</div>
+<div className="text-white  h-[40vh] text-3xl pt-10 ml-32">
+offer a space for users to join like-minded groups for 
+various activities and interactions.
+</div>
+
+
+</div>
+<div className="h-[50vh]"></div>
+
+<div className="bg-[url('/hero7.png')] opacity-80  bg-cover h-full  mt-44 flex flex-col justify-end  items-start">
+<div className="flex ml-32   text-white">
+
+<p className="text-6xl font-semibold">Raids </p>
+
+
+</div>
+<div className="text-white  h-[40vh] text-3xl pt-10 ml-32">
+adventurous activities organized by users, allowing for 
+unique <br/>travel experiences.
+</div>
+
+
+</div>
+<div className="h-[30vh]"></div>
+<div className="bg-[url('/hero8.png')] opacity-80  bg-contain h-full  mt-44 flex flex-col justify-end  items-start">
+<div className="flex ml-32   text-white">
+
+
+
+</div>
+
+
+
+</div>
+<div className="h-[50vh]"></div>
+
+      <Footer />
     </main>
   );
 }
