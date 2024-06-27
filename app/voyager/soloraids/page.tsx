@@ -41,25 +41,36 @@ const SoloRaids = () => {
         <div>
             <Navbar />
             <div className="flex min-h-screen">
-                <aside className="bg-[#75E2FF] w-80 p-12">
-                    <div className="mb-6 bg-white p-4 rounded-2xl">
-                        <img src="/calendar.jpg" className='rounded-full w-[20%]' />
-                        <a href="/createEvent"><button className="w-[80%] bg-black text-white py-2 rounded mt-6">+ Create a Raid</button></a>
-                    </div>
-                    <div className="mb-6 bg-white p-4 rounded-2xl">
-                        <img src="/calendar.jpg" className='rounded-full w-[20%]' />
-                        <a href="/voyager/profile"><h2 className="text-lg mb-2 mt-8"><span className="text-4xl float-right">↗</span>Solo raid I am Attending </h2></a>
-                    </div>
-                    <div className="mb-6 bg-white p-2 rounded-2xl">
-                        <h2 className="text-lg mb-2"><Dropdown /></h2>
-                    </div>
-                </aside>
-                <main className="bg-[#D7E58D] flex-grow p-8">
+            <aside className="bg-[#1F2023] w-80 p-12">
+    <div className="mb-6 bg-[#1F2023] p-4 gradient-border rounded">
+        <img src="/calendar.jpg" className="rounded-full w-[20%]" />
+        <a href="/createEvent">
+        <span className='text-white text-lg '>Events I am Organizing</span>
+            <button className="w-[80%] bg-black text-white py-2 rounded mt-6">+ Create an Event</button>
+        </a>
+    </div>
+    <div className="mb-6 bg-[#1F2023] p-4 gradient-border rounded">
+        <img src="/calendar.jpg" className="rounded-full w-[20%]" />
+        <a href="/voyager/profile">
+            <h2 className="text-lg mb-2 mt-8 text-white">
+                <span className="text-4xl float-right text-white">↗</span>Solo raid I am Attending
+            </h2>
+        </a>
+    </div>
+    <div className="mb-6 bg-[#ffffff] px-2  rounded">
+        <h2 className="text-lg mb-2 text-black">
+            <Dropdown />
+        </h2>
+    </div>
+</aside>
+
+
+                <main className="bg-black flex-grow p-8">
                     <div className="flex items-center justify-between mb-8">
                         <input
                             type="text"
                             placeholder="Search"
-                            className="w-[50%] px-4 py-2 border border-gray-300 rounded-full focus:outline-none"
+                            className="w-[50%] px-4 py-2 border border-gray-300 bg-black rounded-full focus:outline-none"
                         />
                         <div>
                             <button onClick={handleStake} className='p-2 px-4 bg-black rounded-full text-white'>Stake Now</button>
@@ -67,30 +78,30 @@ const SoloRaids = () => {
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {title &&
-                            <div className="bg-white p-4">
-                                <img src="/goa.png" className="w-80 h-90 object-cover rounded-lg mb-4" />
+                            <div className="bg-white  ">
+                                <img src="/soloraid1.png" className="  rounded-lg" />
                                 <h3 className="text-3xl mb-2">{title}</h3>
                                 <p className="text-gray-700 mb-4">No Of Ticket Available: 5 </p>
                                 <a href="/voyager/solomint"> <button className="w-[50%] bg-black text-white py-2 rounded">Join now</button></a>
                             </div>
                         }
-                        <div className="bg-white p-4">
-                            <img src="/solo1.png" className="w-80 h-90 object-cover rounded-lg mb-4" />
-                            <h3 className="text-3xl mb-2">Trip to Bali</h3>
-                            <p className="text-gray-700 mb-4">No Of Ticket Available: 3</p>
-                            <a href="/voyager/solomint"><button className="w-[50%] bg-black text-white py-2 rounded">Join now</button></a>
+                        <div className="bg-white rounded-lg h-[80] ">
+                            <img src="/soloraid1.png" className=" h-[80]  bg-cover rounded-lg mb-4" />
+                            <h3 className="text-3xl mb-2 px-5">Trip to Bali</h3>
+                            <p className="text-gray-700 mb-4 px-5">No Of Ticket Available: 3</p>
+                            <a href="/voyager/solomint"><button className="w-[50%] bg-black text-white py-2 rounded  mb-2 ml-5">Join now</button></a>
                         </div>
-                        <div className="bg-white p-4">
-                            <img src="/solo2.png" className="w-80 h-90 object-cover rounded-lg mb-4" />
-                            <h3 className="text-3xl  mb-2">Trip to USA</h3>
-                            <p className="text-gray-700 mb-4">No Of Ticket Available: 4</p>
-                            <a href="/voyager/solomint"><button className="w-[50%] bg-black text-white py-2 rounded">Join now</button></a>
+                        <div className="bg-white rounded-lg h-[80] ">
+                            <img src="/soloraid2.png" className=" h-[80]  bg-cover rounded-lg mb-4" />
+                            <h3 className="text-3xl mb-2 px-5">Trip to Bali</h3>
+                            <p className="text-gray-700 mb-4 px-5">No Of Ticket Available: 3</p>
+                            <a href="/voyager/solomint"><button className="w-[50%] bg-black text-white py-2 rounded  mb-2 ml-5">Join now</button></a>
                         </div>
-                        <div className="bg-white p-4">
-                            <img src="/solo3.png" className="w-80 h-90 object-cover rounded-lg mb-4" />
-                            <h3 className="text-3xl mb-2">Trip to Manali</h3>
-                            <p className="text-gray-700 mb-4">No Of Ticket Available: 2</p>
-                            <a href="/voyager/solomint"> <button className="w-[50%] bg-black text-white py-2 rounded">Join now</button></a>
+                        <div className="bg-white rounded-lg h-[80] ">
+                            <img src="/soloraid3.png" className=" h-[80]  bg-cover rounded-lg mb-4" />
+                            <h3 className="text-3xl mb-2 px-5">Trip to Bali</h3>
+                            <p className="text-gray-700 mb-4 px-5">No Of Ticket Available: 3</p>
+                            <a href="/voyager/solomint"><button className="w-[50%] bg-black text-white py-2 rounded  mb-2 ml-5">Join now</button></a>
                         </div>
                     </div>
                 </main>

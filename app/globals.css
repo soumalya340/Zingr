@@ -113,3 +113,12 @@ body {
   );
 }
 
+
+.gradient-border {
+  border: 1px solid;
+  border-image-source: linear-gradient(124.13deg, #FFD540 1.16%, #2B7CFF 31.37%, #11D9C5 66.94%, #FE68FC 96.66%);
+  border-image-slice: 1;
+  border-radius: 0.5rem; /* Add this line */
+}
+
+

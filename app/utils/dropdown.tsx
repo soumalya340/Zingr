@@ -7,10 +7,10 @@ const Dropdown: React.FC = () => {
     <div className="relative inline-block">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className=" text-black py-2 px-4 rounded inline-flex items-center"
+        className="  py-2 px-2 rounded inline-flex items-center text-black"
       >
-        <span className="mr-1">Location</span>
-        <svg className="fill-current h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+        <span className="mr-1 text-xl text-black pr-16">Location</span>
+        <svg className=" h-8 w-8 " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
           <path d="M5.5 7l4.5 4 4.5-4z" />
         </svg>
       </button>
