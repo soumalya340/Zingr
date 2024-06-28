@@ -234,13 +234,11 @@ const CreateEvent = () => {
 
   return (
     <>
-      <Navbar />
-      
-
-      <main className="min-h-screen flex flex-col bg-blue-200">
+       <Navbar />
+      <main className="min-h-screen flex flex-col bg-gray-900 text-white">
         <div className="flex-grow flex items-center justify-center">
-          <div className="bg-blue-200 p-10 rounded shadow-lg">
-             <Formik
+          <div className="bg-gray-800 p-10 rounded shadow-lg w-full max-w-md">
+            <Formik
               initialValues={initialValues}
               onSubmit={(values, actions) => {
                 const { title, description, priceperNFT, funding_goal, date } = values;
@@ -259,29 +257,27 @@ const CreateEvent = () => {
                     variant: "success",
                   });
                 } else {
-                  handleSubmit(event)
-                 
+                  handleSubmit(event);
                 }
                 actions.setSubmitting(false);
               }}
             >
               {({ setFieldValue, values }) => (
                 <Form>
-                  <div className="text-black text-2xl mb-1 font-semibold">
+                  <div className="text-2xl mb-4 font-semibold text-white">
                     Create a Raid
                   </div>
-                  <div className="text-black mb-6 italic">
+                  <div className="text-gray-400 mb-6 italic">
                     Submit your raid ideas for community crowdfunding
                   </div>
-                  <div className="text-black flex flex-col gap-6">
+                  <div className="flex flex-col gap-6">
                     <div>
                       <label className="font-medium" htmlFor="title">
                         Raid Title
                       </label>
-                      <div className="mt-2 w-[300px]">
+                      <div className="mt-2">
                         <Input
-                          style={{ background: "#4AA5F4" }}
-                          className="rounded-full text-white"
+                          className="rounded-full bg-white text-black w-full"
                           required
                           value={values.title}
                           onChange={(e) => {
@@ -296,7 +292,7 @@ const CreateEvent = () => {
                         name="password"
                         id="password"
                         placeholder="Enter a password (optional)"
-                        className="pl-3 pr-28 py-3 mt-1 text-lg block w-full border border-gray-400 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring focus:ring-blue-300"
+                        className="pl-3 pr-28 py-3 mt-1 text-lg block w-full border border-gray-600 rounded-md text-black placeholder-gray-500 focus:outline-none focus:ring focus:ring-gray-500"
                         value={password}
                         onChange={(e) => {
                           setPassword(e.target.value);
@@ -307,10 +303,9 @@ const CreateEvent = () => {
                       <label className="font-medium" htmlFor="description">
                         Description
                       </label>
-                      <div className="mt-2 w-[300px]">
+                      <div className="mt-2">
                         <Input.TextArea
-                          style={{ background: "#4AA5F4" }}
-                          className="rounded-full text-white"
+                          className="rounded-md bg-white text-black w-full"
                           required
                           value={values.description}
                           onChange={(e) => {
@@ -320,41 +315,40 @@ const CreateEvent = () => {
                       </div>
                     </div>
                     <div>
-            <select
-              className="pl-3 pr-28 py-3 mt-1 text-lg block w-full border border-gray-400 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring focus:ring-blue-300"
-              onChange={(e) => {
-                const value = e.target.value;
-                if (!value || !(value == "1.91:1" || value == "1:1")) return;
-                setFrameRatio(value);
-              }}
-            >
-              <option value="" selected disabled>
-                Change Frame Ratio
-              </option>
-              <option value="1.91:1">1.91:1(default)</option>
-              <option value="1:1">1.1</option>
-            </select>
-          </div>
-
-          <input
-            ref={imagesRef}
-            multiple
-            type="file"
-            id="nft"
-            name="nft"
-            accept="image/png, image/jpeg, image/jpg, image/webp, image/gif"
-            className="pl-3 pr-28 py-3 mt-1 text-lg block w-full border border-gray-400 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring focus:ring-blue-300"
-            onChange={showImages}
-          />
-          <div className="filenames">
-            {displayedFileList.map((file, index) => {
-              return (
-                <li key={`file-${index}`}>
-                  {file.name}: {formatFileSize(file.size)}
-                </li>
-              );
-            })}
-          </div>
+                      <select
+                        className="pl-3 pr-28 py-3 mt-1 text-lg block w-full border border-gray-600 rounded-md text-black placeholder-gray-500 focus:outline-none focus:ring focus:ring-gray-500"
+                        onChange={(e) => {
+                          const value = e.target.value;
+                          if (!value || !(value == "1.91:1" || value == "1:1")) return;
+                          setFrameRatio(value);
+                        }}
+                      >
+                        <option value="" selected disabled>
+                          Change Frame Ratio
+                        </option>
+                        <option value="1.91:1">1.91:1 (default)</option>
+                        <option value="1:1">1:1</option>
+                      </select>
+                    </div>
+                    <input
+                      ref={imagesRef}
+                      multiple
+                      type="file"
+                      id="nft"
+                      name="nft"
+                      accept="image/png, image/jpeg, image/jpg, image/webp, image/gif"
+                      className="pl-3 pr-28 py-3 mt-1 text-lg block w-full border border-gray-600 rounded-md text-gray-300 placeholder-gray-500 focus:outline-none focus:ring focus:ring-gray-500"
+                      onChange={showImages}
+                    />
+                    <div className="filenames mt-2">
+                      {displayedFileList.map((file, index) => {
+                        return (
+                          <li key={`file-${index}`} className="text-gray-400">
+                            {file.name}: {formatFileSize(file.size)}
+                          </li>
+                        );
+                      })}
+                    </div>
                     <div className="flex items-center gap-8">
                       <div>
                         <label className="font-medium" htmlFor="priceperNFT">
@@ -362,8 +356,7 @@ const CreateEvent = () => {
                         </label>
                         <div className="mt-2">
                           <InputNumber
-                            style={{ background: "#4AA5F4" }}
-                            className="rounded-full text-white"
+                            className="rounded-md bg-white text-black  w-full"
                             required
                             value={values.priceperNFT}
                             onChange={(e) => {
@@ -378,8 +371,7 @@ const CreateEvent = () => {
                         </label>
                         <div className="mt-2">
                           <InputNumber
-                            style={{ background: "#4AA5F4" }}
-                            className="rounded-full text-white"
+                            className="rounded-md bg-white text-black w-full"
                             required
                             value={values.funding_goal}
                             onChange={(e) => {
@@ -389,109 +381,90 @@ const CreateEvent = () => {
                         </div>
                       </div>
                     </div>
-
-                    <div className=" text-lg text-start gap-2">
-            <div className="px-2">
-              <input
-                onChange={(e) => {
-                  setHasReadmore((current) => !current);
-                }}
-                ref={readmoreRef}
-                id="read-more"
-                name="read-more"
-                type="checkbox"
-              />
-              <label className="text-xl mx-1" htmlFor="read-more">
-                Add Read More Button
-              </label>
-            </div>
-            {hasReadmore ? (
-              <>
-                <input
-                  required
-                  value={readmoreLink}
-                  onChange={(e) => {
-                    setReadmoreLink(e.target.value);
-                  }}
-                  type="text"
-                  placeholder="Enter the external link here"
-                  className="pl-3 pr-28 py-3 mt-1 my-2
-                    text-lg block w-full border border-gray-400 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring focus:ring-blue-300"
-                />
-                <input
-                  value={readmoreLabel}
-                  onChange={(e) => {
-                    setReadmoreLabel(e.target.value);
-                  }}
-                  className="pl-3 pr-28 py-3 mt-1 my-2 text-lg block w-full border border-gray-400 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring focus:ring-blue-300"
-                  type="text"
-                  placeholder="Button label (optional. Defaults to 'Read More'"
-                />
-              </>
-            ) : null}
-          </div>
+                    <div className="text-lg text-start gap-2">
+                      <div className="px-2">
+                        <input
+                          onChange={(e) => {
+                            setHasReadmore((current) => !current);
+                          }}
+                          ref={readmoreRef}
+                          id="read-more"
+                          name="read-more"
+                          type="checkbox"
+                          className="text-black bg-white border-gray-600 rounded focus:ring focus:ring-gray-500"
+                        />
+                        <label className="text-xl mx-1" htmlFor="read-more">
+                          Add Read More Button
+                        </label>
+                      </div>
+                      {hasReadmore ? (
+                        <>
+                          <input
+                            required
+                            value={readmoreLink}
+                            onChange={(e) => {
+                              setReadmoreLink(e.target.value);
+                            }}
+                            type="text"
+                            placeholder="Enter the external link here"
+                            className="pl-3 pr-28 py-3 mt-1 my-2 text-lg block w-full border border-gray-600 rounded-md text-gray-300 placeholder-gray-500 focus:outline-none focus:ring focus:ring-gray-500"
+                          />
+                          <input
+                            value={readmoreLabel}
+                            onChange={(e) => {
+                              setReadmoreLabel(e.target.value);
+                            }}
+                            className="pl-3 pr-28 py-3 mt-1 my-2 text-lg block w-full border border-gray-600 rounded-md text-gray-300 placeholder-gray-500 focus:outline-none focus:ring focus:ring-gray-500"
+                            type="text"
+                            placeholder="Button label (optional. Defaults to 'Read More'"
+                          />
+                        </>
+                      ) : null}
+                    </div>
                     <div>
                       <label htmlFor="date" className="block mb-2">
                         Valid till
                       </label>
                       <DatePicker
-                        style={{ background: "#4AA5F4" }}
-                        className="rounded-full text-white"
+                        className="rounded-md bg-white text-black w-full"
                         onChange={(e) => {
                           setFieldValue("date", e);
                         }}
                       />
                     </div>
                   </div>
-                  <div className={"pt-4 flex justify-end gap-4"}>
-          
-                  <button
-              className={clsx(
-                "flex items-center p-1 justify-center px-4 h-10 text-lg border bg-blue-500 text-white rounded-md focus:outline-none focus:ring focus:ring-blue-300 hover:bg-blue-700 focus:bg-blue-700",
-                isLoading &&
-                  "disabled cursor-not-allowed bg-blue-100 hover:bg-blue-100 focus:bg-blue-100"
-              )}
-              id="propose"
-              type="submit"
-              disabled={isLoading}
-            >
-              {isLoading ? loadingMessage : "Create frames"}
-            </button>
-          </div>
-                  <div className="mt-5">
+                  <div className="pt-4 flex justify-end gap-4">
                     <button
-                      style={{
-                        color: "white",
-                        borderRadius: "9999px",
-                        background: "#0F4C81",
-                      }}
-                      
-                      className="hover:bg-sky-500 p-4"
+                      className={clsx(
+                        "flex items-center p-1 justify-center px-4 h-10 text-lg border bg-gray-700 text-white rounded-md focus:outline-none focus:ring focus:ring-gray-500 hover:bg-gray-600 focus:bg-gray-600",
+                        isLoading && "disabled cursor-not-allowed bg-gray-400 hover:bg-gray-400 focus:bg-gray-400"
+                      )}
+                      id="propose"
                       type="submit"
-                      id="pr"
+                      disabled={isLoading}
+                    >
+                      {isLoading ? loadingMessage : "Create frames"}
+                    </button>
+                  </div>
+                  <div className="mt-4 w-full flex justify-center text-center">
+                    <button
+                      type="submit"
                       onClick={() => {
                         submitAction = "primary";
-                       
                       }}
-                      
+                      className="gradient-border text-white w-full flex items-center justify-center px-4 h-10 text-lg border border-blue-500 rounded-full focus:outline-none focus:ring focus:ring-blue-300"
                     >
-                      
-                      Create Proposal
+                      Propose the Raid
                     </button>
-          </div>
-                  <div className="mt-5">
-              
                   </div>
                 </Form>
-                
               )}
-              
-
             </Formik>
-            
           </div>
-          {warpcastUrl && (
-          <div className="flex items-center gap-2 bg-purple-900 text-white p-4 m-2 z-10">
+          
+        </div>
+        {warpcastUrl && (
+          <div className="flex items-center gap-2 text-center justify-center bg-purple-900 text-white p-4 m-2 z-10">
             <span>
               Share on warpcast:
               <span className="m-1 text-green-200">{warpcastUrl}</span>
@@ -506,16 +479,10 @@ const CreateEvent = () => {
               {copied ? "Copied" : "Copy"}
             </button>
           </div>
-        )}
-    
-      <div className="w-screen"></div>
-          
-        </div>
+        )} 
       </main>
     </>
   );
-
-  // form.tsx
 };
 
 export default CreateEvent;
